@@ -8,6 +8,8 @@ using System.Configuration;
 using System.Web.SessionState;
 using Facebook;
 using System.Web;
+using System.Net;
+using System.IO;
 
 namespace FacebookEasyAccess
 {
@@ -63,7 +65,7 @@ namespace FacebookEasyAccess
             parameters.redirect_uri = pRedirectUrl;
 
             // The requested response: an access token (token), an authorization code (code), or both (code token).
-            parameters.response_type = "token";
+            parameters.response_type = "code";
 
             // list of additional display modes can be found at http://developers.facebook.com/docs/reference/dialogs/#display
             parameters.display = "popup";
@@ -92,10 +94,29 @@ namespace FacebookEasyAccess
         {
             if (string.IsNullOrEmpty(pAccessTokenRequest)) throw new ApplicationException("pAccessTokenRequest cannot be null");
             if (pSessionState == null) throw new ApplicationException("pSessionState cannot be null");
-            if (pSessionState["state"] != pCSRFstateRequest) throw new System.Security.SecurityException("Invalid pCSRFstateRequest value");
+            if (pSessionState["state"].ToString() != pCSRFstateRequest) throw new System.Security.SecurityException("Invalid pCSRFstateRequest value");
 
             var fb = new Facebook.FacebookClient(pAccessTokenRequest);
             return fb.Get("me");
+        }
+
+        /// <summary>
+        /// Gets the access token from code.
+        /// </summary>
+        /// <param name="redirecturl">The redirecturl.</param>
+        /// <param name="code">The code.</param>
+        /// <returns></returns>
+        public string GetAccessTokenFromCode(string redirecturl, string code)
+        {
+            string url = string.Format(
+                "https://graph.facebook.com/oauth/access_token?client_id={0}&redirect_uri={1}&client_secret={2}&code={3}",
+                this._facebookAppId,
+                redirecturl,
+                _facebookAppSecretId,
+                code);
+
+            AccessToken accessToken = PageContent.Get(url);
+            return accessToken.Value;
         }
 
         /// <summary>
@@ -107,7 +128,7 @@ namespace FacebookEasyAccess
         {
             if (pSessionState == null) throw new ApplicationException("pSessionState cannot be null");
             var statecode = Guid.NewGuid();
-            pSessionState["state"] = statecode;
+            pSessionState["state"] = statecode.ToString();
             return statecode.ToString();
         }
 

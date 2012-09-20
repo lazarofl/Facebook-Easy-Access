@@ -31,6 +31,14 @@ namespace FacebookEasyAccess.Interfaces
         dynamic GetAuthenticatedUserInfo(string pAccessTokenRequest, string pCSRFstateRequest, HttpSessionStateBase pSessionState);
 
         /// <summary>
+        /// Gets the access token from code.
+        /// </summary>
+        /// <param name="redirecturl">The redirecturl.</param>
+        /// <param name="code">The code.</param>
+        /// <returns></returns>
+        string GetAccessTokenFromCode(string redirecturl, string code);
+
+        /// <summary>
         /// Generates the CSRF state code.
         /// </summary>
         /// <param name="pSessionState">State of the p session.</param>
