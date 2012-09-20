@@ -7,6 +7,7 @@ using System.Dynamic;
 using System.Configuration;
 using System.Web.SessionState;
 using Facebook;
+using System.Web;
 
 namespace FacebookEasyAccess
 {
@@ -87,7 +88,7 @@ namespace FacebookEasyAccess
         /// <returns></returns>
         /// <exception cref="System.ApplicationException">pAccessTokenRequest or pCSRFstateRequest cannot be null</exception>
         /// <exception cref="System.Security.SecurityException">invalid CSRF</exception>
-        public dynamic GetAuthenticatedUserInfo(string pAccessTokenRequest, string pCSRFstateRequest, HttpSessionState pSessionState)
+        public dynamic GetAuthenticatedUserInfo(string pAccessTokenRequest, string pCSRFstateRequest, HttpSessionStateBase pSessionState)
         {
             if (string.IsNullOrEmpty(pAccessTokenRequest)) throw new ApplicationException("pAccessTokenRequest cannot be null");
             if (pSessionState == null) throw new ApplicationException("pSessionState cannot be null");
@@ -102,7 +103,7 @@ namespace FacebookEasyAccess
         /// </summary>
         /// <param name="pSessionState">State of the p session.</param>
         /// <exception cref="System.ApplicationException">pSessionState cannot be null</exception>
-        public string GenerateCSRFStateCode(HttpSessionState pSessionState)
+        public string GenerateCSRFStateCode(HttpSessionStateBase pSessionState)
         {
             if (pSessionState == null) throw new ApplicationException("pSessionState cannot be null");
             var statecode = Guid.NewGuid();

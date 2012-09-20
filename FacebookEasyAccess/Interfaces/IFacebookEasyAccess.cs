@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.SessionState;
+using System.Web;
 
 namespace FacebookEasyAccess.Interfaces
 {
@@ -27,14 +28,14 @@ namespace FacebookEasyAccess.Interfaces
         /// <returns></returns>
         /// <exception cref="System.ApplicationException">pAccessTokenRequest or pCSRFstateRequest cannot be null</exception>
         /// <exception cref="System.Security.SecurityException">invalid CSRF</exception>
-        dynamic GetAuthenticatedUserInfo(string pAccessTokenRequest, string pCSRFstateRequest, HttpSessionState pSessionState);
+        dynamic GetAuthenticatedUserInfo(string pAccessTokenRequest, string pCSRFstateRequest, HttpSessionStateBase pSessionState);
 
         /// <summary>
         /// Generates the CSRF state code.
         /// </summary>
         /// <param name="pSessionState">State of the p session.</param>
         /// <exception cref="System.ApplicationException">pSessionState cannot be null</exception>
-        string GenerateCSRFStateCode(HttpSessionState pSessionState);
+        string GenerateCSRFStateCode(HttpSessionStateBase pSessionState);
 
         /// <summary>
         /// Gets the user info.
