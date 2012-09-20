@@ -159,7 +159,7 @@ namespace FacebookEasyAccess
         /// <param name="pGraph">The graph term. <example>/picture</example><example>/books</example></param>
         /// <returns></returns>
         /// <exception cref="System.ApplicationException">pUserId or pGraph cannot be null</exception>
-        public dynamic GetPictureInfo(string pUserId, string pGraph)
+        public dynamic GetCustomGraphData(string pUserId, string pGraph)
         {
             if (pUserId == null) throw new ApplicationException("pUserId cannot be null");
             if (pGraph == null) throw new ApplicationException("pGraph cannot be null");

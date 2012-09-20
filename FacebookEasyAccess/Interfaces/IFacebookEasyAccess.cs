@@ -67,6 +67,6 @@ namespace FacebookEasyAccess.Interfaces
         /// <param name="pGraph">The graph term. <example>/picture</example><example>/books</example></param>
         /// <returns></returns>
         /// <exception cref="System.ApplicationException">pUserId or pGraph cannot be null</exception>
-        dynamic GetPictureInfo(string pUserId, string pGraph);
+        dynamic GetCustomGraphData(string pUserId, string pGraph);
     }
 }
