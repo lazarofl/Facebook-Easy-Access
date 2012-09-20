@@ -83,11 +83,11 @@ namespace FacebookEasyAccess
         /// </summary>
         /// <param name="pAccessTokenRequest">The access token request.</param>
         /// <param name="pCSRFstateRequest">The CSRF state code request.</param>
-        /// <param name="pSessionState">State of the IHttpSessionState.</param>
+        /// <param name="pSessionState">State of the HttpSessionState.</param>
         /// <returns></returns>
         /// <exception cref="System.ApplicationException">pAccessTokenRequest or pCSRFstateRequest cannot be null</exception>
         /// <exception cref="System.Security.SecurityException">invalid CSRF</exception>
-        public dynamic GetAuthenticatedUserInfo(string pAccessTokenRequest, string pCSRFstateRequest, IHttpSessionState pSessionState)
+        public dynamic GetAuthenticatedUserInfo(string pAccessTokenRequest, string pCSRFstateRequest, HttpSessionState pSessionState)
         {
             if (string.IsNullOrEmpty(pAccessTokenRequest)) throw new ApplicationException("pAccessTokenRequest cannot be null");
             if (pSessionState == null) throw new ApplicationException("pSessionState cannot be null");
@@ -102,12 +102,12 @@ namespace FacebookEasyAccess
         /// </summary>
         /// <param name="pSessionState">State of the p session.</param>
         /// <exception cref="System.ApplicationException">pSessionState cannot be null</exception>
-        public string GenerateCSRFStateCode(IHttpSessionState pSessionState)
+        public string GenerateCSRFStateCode(HttpSessionState pSessionState)
         {
             if (pSessionState == null) throw new ApplicationException("pSessionState cannot be null");
             var statecode = Guid.NewGuid();
             pSessionState["state"] = statecode;
-            return statecode;
+            return statecode.ToString();
         }
 
         /// <summary>

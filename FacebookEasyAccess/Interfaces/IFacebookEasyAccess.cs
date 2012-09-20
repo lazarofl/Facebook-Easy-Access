@@ -23,18 +23,18 @@ namespace FacebookEasyAccess.Interfaces
         /// </summary>
         /// <param name="pAccessTokenRequest">The access token request.</param>
         /// <param name="pCSRFstateRequest">The CSRF state code request.</param>
-        /// <param name="pSessionState">State of the IHttpSessionState.</param>
+        /// <param name="pSessionState">State of the HttpSessionState.</param>
         /// <returns></returns>
         /// <exception cref="System.ApplicationException">pAccessTokenRequest or pCSRFstateRequest cannot be null</exception>
         /// <exception cref="System.Security.SecurityException">invalid CSRF</exception>
-        dynamic GetAuthenticatedUserInfo(string pAccessTokenRequest, string pCSRFstateRequest, IHttpSessionState pSessionState);
+        dynamic GetAuthenticatedUserInfo(string pAccessTokenRequest, string pCSRFstateRequest, HttpSessionState pSessionState);
 
         /// <summary>
         /// Generates the CSRF state code.
         /// </summary>
         /// <param name="pSessionState">State of the p session.</param>
         /// <exception cref="System.ApplicationException">pSessionState cannot be null</exception>
-        string GenerateCSRFStateCode(IHttpSessionState pSessionState);
+        string GenerateCSRFStateCode(HttpSessionState pSessionState);
 
         /// <summary>
         /// Gets the user info.
