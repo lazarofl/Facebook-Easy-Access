@@ -34,7 +34,7 @@ namespace FacebookEasyAccess.Interfaces
         /// </summary>
         /// <param name="pSessionState">State of the p session.</param>
         /// <exception cref="System.ApplicationException">pSessionState cannot be null</exception>
-        void GenerateCSRFStateCode(IHttpSessionState pSessionState);
+        string GenerateCSRFStateCode(IHttpSessionState pSessionState);
 
         /// <summary>
         /// Gets the user info.

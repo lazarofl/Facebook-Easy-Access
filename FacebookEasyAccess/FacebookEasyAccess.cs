@@ -102,11 +102,12 @@ namespace FacebookEasyAccess
         /// </summary>
         /// <param name="pSessionState">State of the p session.</param>
         /// <exception cref="System.ApplicationException">pSessionState cannot be null</exception>
-        public void GenerateCSRFStateCode(IHttpSessionState pSessionState)
+        public string GenerateCSRFStateCode(IHttpSessionState pSessionState)
         {
             if (pSessionState == null) throw new ApplicationException("pSessionState cannot be null");
             var statecode = Guid.NewGuid();
             pSessionState["state"] = statecode;
+            return statecode;
         }
 
         /// <summary>
