@@ -1,7 +1,7 @@
+C:\Users\lazaro.fernandes\Documents\GitHub\Facebook-Easy-Access\FacebookEasyAccess\obj\Debug\FacebookEasyAccess.pdb
+C:\Users\lazaro.fernandes\Documents\GitHub\Facebook-Easy-Access\FacebookEasyAccess\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\lazaro.fernandes\Documents\GitHub\Facebook-Easy-Access\FacebookEasyAccess\bin\Debug\FacebookEasyAccess.dll
 C:\Users\lazaro.fernandes\Documents\GitHub\Facebook-Easy-Access\FacebookEasyAccess\bin\Debug\FacebookEasyAccess.pdb
 C:\Users\lazaro.fernandes\Documents\GitHub\Facebook-Easy-Access\FacebookEasyAccess\bin\Debug\Facebook.dll
 C:\Users\lazaro.fernandes\Documents\GitHub\Facebook-Easy-Access\FacebookEasyAccess\bin\Debug\Facebook.xml
-C:\Users\lazaro.fernandes\Documents\GitHub\Facebook-Easy-Access\FacebookEasyAccess\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\lazaro.fernandes\Documents\GitHub\Facebook-Easy-Access\FacebookEasyAccess\obj\Debug\FacebookEasyAccess.dll
-C:\Users\lazaro.fernandes\Documents\GitHub\Facebook-Easy-Access\FacebookEasyAccess\obj\Debug\FacebookEasyAccess.pdb

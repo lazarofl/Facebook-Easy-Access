@@ -48,6 +48,7 @@
     <Compile Include="AccessToken.cs" />
     <Compile Include="FacebookEasyAccess.cs" />
     <Compile Include="Interfaces\IFacebookEasyAccess.cs" />
+    <Compile Include="OpenStyle.cs" />
     <Compile Include="PageContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -44,6 +44,7 @@ namespace FacebookEasyAccess
             return string.Concat(_facebookAppId, "|", _facebookAppSecretId);
         }
 
+        
         /// <summary>
         /// Generates the login URL.
         /// </summary>
@@ -52,7 +53,7 @@ namespace FacebookEasyAccess
         /// <param name="pRedirectUrl">The redirect URL.</param>
         /// <returns></returns>
         /// <exception cref="System.ApplicationException">pCSRFstate or pRedirectUrl cannot be null</exception>
-        public Uri GenerateLoginUrl(string pCSRFstate, string pPermissions, string pRedirectUrl)
+        public Uri GenerateLoginUrl(string pCSRFstate, string pPermissions, string pRedirectUrl, OpenStyle pOpenStyle)
         {
             if (string.IsNullOrEmpty(pCSRFstate)) throw new ApplicationException("pCSRFstate cannot be null");
             if (string.IsNullOrEmpty(pRedirectUrl)) throw new ApplicationException("pRedirectUrl cannot be null");
@@ -68,7 +69,17 @@ namespace FacebookEasyAccess
             parameters.response_type = "code";
 
             // list of additional display modes can be found at http://developers.facebook.com/docs/reference/dialogs/#display
-            parameters.display = "popup";
+            switch (pOpenStyle)
+            {
+                case OpenStyle.Popup:
+                    parameters.display = "popup";
+                    break;
+                case OpenStyle.Page:
+                    parameters.display = "page";
+                    break;
+                default:
+                    break;
+            }
 
             parameters.state = pCSRFstate;
 

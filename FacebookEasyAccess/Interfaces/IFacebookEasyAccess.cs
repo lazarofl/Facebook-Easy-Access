@@ -17,7 +17,7 @@ namespace FacebookEasyAccess.Interfaces
         /// <param name="pRedirectUrl">The redirect URL.</param>
         /// <returns></returns>
         /// <exception cref="System.ApplicationException">pCSRFstate or pRedirectUrl cannot be null</exception>
-        Uri GenerateLoginUrl(string pCSRFstate, string pPermissions, string pRedirectUrl);
+        Uri GenerateLoginUrl(string pCSRFstate, string pPermissions, string pRedirectUrl, OpenStyle pOpenStyle);
 
         /// <summary>
         /// Gets the authenticated user info.
